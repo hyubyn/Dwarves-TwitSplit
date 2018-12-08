@@ -14,7 +14,6 @@ class HomeViewController: BaseViewController {
     
     
     override func setupView() {
-        addButton.layer.borderWidth = 0.1
         addButton.layer.shadowColor = UIColor.black.cgColor
         addButton.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         addButton.layer.masksToBounds = false
@@ -29,6 +28,7 @@ class HomeViewController: BaseViewController {
     }
 
     @IBAction func addButtonTapped(_ sender: Any) {
+        PostNewTweatWireFrame.presentPostNewTweatModally(from: self)
     }
 }
 

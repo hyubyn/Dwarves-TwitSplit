@@ -27,5 +27,13 @@ class BaseViewController: UIViewController {
     func setupNavigationBar() {
         
     }
+    
+    func showAlert(title: String, message: String, okAction:(()->())?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
+            okAction?()
+        }))
+        self.navigationController?.present(alert, animated: true, completion: nil)
+    }
 
 }

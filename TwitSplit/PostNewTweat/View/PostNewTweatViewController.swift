@@ -15,6 +15,8 @@ class PostNewTweatViewController: BaseViewController {
     
     let placeHolderText = "What's happening?"
     
+    var presenter: PostNewTweatPresenterProtocol?
+    
     override func setupView() {
         super.setupView()
         avatarImageView.layer.cornerRadius = avatarImageView.frame.size.height / 2
@@ -38,8 +40,29 @@ class PostNewTweatViewController: BaseViewController {
     }
     
     @objc func postButtonTapped() {
+        guard let presenter = presenter else {
+            self.showAlert(title: "Error", message: "Can not perform action now", okAction: nil)
+            return
+        }
+        presenter.postNewTweat(content: inputTextView.text)
+    }
+}
+
+// MARK - PostNewTweatViewProtocol
+extension PostNewTweatViewController: PostNewTweatViewProtocol {
+    func setupDisplay() {
         
     }
+    
+    func showPostNewTweatWithResult(isSuccess: Bool, and message: String) {
+        showAlert(title: isSuccess ? "Post Successful" : "Post Failed", message: message) {
+            if isSuccess {
+                self.cancelButtonTapped()
+            }
+        }
+    }
+    
+    
 }
 
 // MARK - UITextViewDelegate
