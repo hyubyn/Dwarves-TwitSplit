@@ -42,8 +42,8 @@ class PostNewTweatPresenter: PostNewTweatPresenterProtocol, PostNewTweatOutputIn
         if content.count == 0 {
             return (false, [])
         }
-        let arrayContent = Utils.splitMessage(content: content)
-        return (true, arrayContent)
+        
+        return Utils.splitMessage(content: content)
     }
     
 }

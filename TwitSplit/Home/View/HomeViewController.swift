@@ -12,6 +12,13 @@ class HomeViewController: BaseViewController {
 
     @IBOutlet weak var addButton: UIButton!
     
+    @IBOutlet weak var tableView: UITableView!
+    
+    let cellIdentifier = "tableViewCell"
+    
+    var presenter: HomePresenterProtocol?
+    
+    var listMessage = [Tweat]()
     
     override func setupView() {
         addButton.layer.shadowColor = UIColor.black.cgColor
@@ -20,6 +27,12 @@ class HomeViewController: BaseViewController {
         addButton.layer.shadowRadius = 1.0
         addButton.layer.shadowOpacity = 0.5
         addButton.layer.cornerRadius = addButton.frame.width / 2
+        
+        tableView.tableFooterView = UIView()
+        tableView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        tableView.separatorStyle = .none
+        
+        setupDisplay()
     }
 
     override func setupNavigationBar() {
@@ -28,7 +41,42 @@ class HomeViewController: BaseViewController {
     }
 
     @IBAction func addButtonTapped(_ sender: Any) {
-        PostNewTweatWireFrame.presentPostNewTweatModally(from: self)
+        presenter?.router?.presentPostNewTweatModally(from: self)
     }
 }
 
+// MARK - HomeViewProtocol
+extension HomeViewController: HomeViewProtocol {
+    
+    func setupDisplay() {
+        presenter?.fetchListMessage()
+    }
+    
+    func showListMessage(message: [Tweat]) {
+        listMessage = message
+        tableView.reloadData()
+    }
+    
+    func showErrorFromGetMessage(error: String) {
+        showAlert(title: "Error", message: error, okAction: nil)
+    }
+    
+    
+}
+
+// MARK - UITableViewDataSource
+extension HomeViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return listMessage.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! HomeTableViewCell
+        cell.messageContentLabel.text = listMessage[indexPath.row].localizedString()
+        cell.timeLabel.text = "Posted on \(Utils.convertFromTimeStampToTimeString(timeStampString: listMessage[indexPath.row].id))"
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    
+}

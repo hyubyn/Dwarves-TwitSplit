@@ -17,26 +17,52 @@ class Utils: NSObject {
         return Int(Date().timeIntervalSince1970)
     }
     
-    class func splitMessage(content: String) -> [String] {
+    class func convertFromTimeStampToTimeString(timeStampString: String) -> String {
+        let date = Date(timeIntervalSince1970: Double(timeStampString) ?? 0)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        let strDate = dateFormatter.string(from: date)
+        return strDate
+    }
+    
+    class func splitMessage(content: String) -> (Bool, [String]) {
         if content.count <= Constants.maxCharacterCount {
-            return [content]
+            return (true, [content])
         } else {
-            let total = Double(content.count) / Double(Constants.maxCharacterCount)
-            let intTotal = Int(total.rounded(.up))
+            let total = content.split(separator: " ", maxSplits: Constants.maxCharacterCount, omittingEmptySubsequences: false).count // maximum total substring is array of string after has splitted white space
             var result = [String]()
-            for index in 0 ..< intTotal {
-                let startIndex = index * Constants.maxCharacterCount
-                var endIndex = index * Constants.maxCharacterCount + Constants.maxCharacterCount
+            var startIndex = 0
+            var endIndex = 0
+            for index in 0 ..< total {
+                if startIndex >= content.count {
+                    break;
+                }
+                let prefix = "\(index + 1)/\(total) "
+                let maxSubStringLenght = Constants.maxCharacterCount - prefix.count
+                endIndex = startIndex + maxSubStringLenght
                 if endIndex > content.count {
                     endIndex = content.count
-                } else if endIndex == 0 {
-                    endIndex = Constants.maxCharacterCount + 1
+                }
+                // check condition for subString of white spacing
+                if endIndex < content.count {
+                    while content[endIndex] != " " {
+                        endIndex -= 1
+                        if endIndex < startIndex {
+                            return (false, [])
+                        }
+                        if content[endIndex] == " " {
+                            break
+                        }
+                    }
                 }
                 let subString = String(content[startIndex..<endIndex])
-                let finalString = "\(index + 1)/\(intTotal) \(subString)"
-                result.append(finalString)
+                result.append(subString)
+                startIndex = endIndex + 1 // by pass spacing
             }
-            return result
+            for finalIndex in 0 ..< result.count {
+                result[finalIndex] = "\(finalIndex + 1)/\(result.count) \(result[finalIndex])"
+            }
+            return (true, result)
         }
     }
 }

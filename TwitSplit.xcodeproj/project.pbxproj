@@ -23,6 +23,12 @@
 		4FBC125221BB6D2D00CDFD81 /* PostNewTweatInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBC125121BB6D2D00CDFD81 /* PostNewTweatInteractor.swift */; };
 		4FBC125421BB6EC700CDFD81 /* Tweat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBC125321BB6EC700CDFD81 /* Tweat.swift */; };
 		4FBC125621BB75C800CDFD81 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBC125521BB75C800CDFD81 /* Utils.swift */; };
+		4FBC125A21BB965700CDFD81 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBC125821BB965700CDFD81 /* HomeTableViewCell.swift */; };
+		4FBC125B21BB965700CDFD81 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FBC125921BB965700CDFD81 /* HomeTableViewCell.xib */; };
+		4FBC125D21BB97FF00CDFD81 /* HomeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBC125C21BB97FF00CDFD81 /* HomeProtocols.swift */; };
+		4FBC125F21BB98D900CDFD81 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBC125E21BB98D900CDFD81 /* HomePresenter.swift */; };
+		4FBC126121BB98E700CDFD81 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBC126021BB98E700CDFD81 /* HomeInteractor.swift */; };
+		4FBC126321BB98F200CDFD81 /* HomeWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBC126221BB98F200CDFD81 /* HomeWireFrame.swift */; };
 		CC512762355CF811FF681D38 /* Pods_TwitSplit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BF53ED93547A09B4851626 /* Pods_TwitSplit.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +53,12 @@
 		4FBC125121BB6D2D00CDFD81 /* PostNewTweatInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNewTweatInteractor.swift; sourceTree = "<group>"; };
 		4FBC125321BB6EC700CDFD81 /* Tweat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweat.swift; sourceTree = "<group>"; };
 		4FBC125521BB75C800CDFD81 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		4FBC125821BB965700CDFD81 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		4FBC125921BB965700CDFD81 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
+		4FBC125C21BB97FF00CDFD81 /* HomeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocols.swift; sourceTree = "<group>"; };
+		4FBC125E21BB98D900CDFD81 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		4FBC126021BB98E700CDFD81 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		4FBC126221BB98F200CDFD81 /* HomeWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWireFrame.swift; sourceTree = "<group>"; };
 		FD8E4F9184948B5A7BBF6877 /* Pods-TwitSplit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitSplit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TwitSplit/Pods-TwitSplit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +113,7 @@
 				4F918D5921BAD21F008047E2 /* Interactor */,
 				4F918D5821BAD21A008047E2 /* Presenter */,
 				4F918D5721BAD214008047E2 /* View */,
+				4FBC125C21BB97FF00CDFD81 /* HomeProtocols.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -136,6 +149,7 @@
 		4F918D5721BAD214008047E2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4FBC125721BB963E00CDFD81 /* HomeTableViewCell */,
 				4F918D4121BAB3BC008047E2 /* HomeViewController.swift */,
 			);
 			path = View;
@@ -144,6 +158,7 @@
 		4F918D5821BAD21A008047E2 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				4FBC125E21BB98D900CDFD81 /* HomePresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -151,6 +166,7 @@
 		4F918D5921BAD21F008047E2 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				4FBC126021BB98E700CDFD81 /* HomeInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -158,6 +174,7 @@
 		4F918D5A21BAD237008047E2 /* WireFrame */ = {
 			isa = PBXGroup;
 			children = (
+				4FBC126221BB98F200CDFD81 /* HomeWireFrame.swift */,
 			);
 			path = WireFrame;
 			sourceTree = "<group>";
@@ -230,6 +247,15 @@
 				4FBC125521BB75C800CDFD81 /* Utils.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		4FBC125721BB963E00CDFD81 /* HomeTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				4FBC125821BB965700CDFD81 /* HomeTableViewCell.swift */,
+				4FBC125921BB965700CDFD81 /* HomeTableViewCell.xib */,
+			);
+			path = HomeTableViewCell;
 			sourceTree = "<group>";
 		};
 		91DFC01F83BC2CF80E69370C /* Pods */ = {
@@ -312,6 +338,7 @@
 				4F918D4A21BAB3BD008047E2 /* LaunchScreen.storyboard in Resources */,
 				4FBC124821BB609D00CDFD81 /* GoogleService-Info.plist in Resources */,
 				4F918D4721BAB3BD008047E2 /* Assets.xcassets in Resources */,
+				4FBC125B21BB965700CDFD81 /* HomeTableViewCell.xib in Resources */,
 				4F918D4521BAB3BC008047E2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,7 +395,12 @@
 			files = (
 				4FBC124A21BB620400CDFD81 /* PostNewTweatProtocol.swift in Sources */,
 				4FBC125021BB68AD00CDFD81 /* PostNewTweatPresenter.swift in Sources */,
+				4FBC125A21BB965700CDFD81 /* HomeTableViewCell.swift in Sources */,
+				4FBC126321BB98F200CDFD81 /* HomeWireFrame.swift in Sources */,
+				4FBC126121BB98E700CDFD81 /* HomeInteractor.swift in Sources */,
+				4FBC125F21BB98D900CDFD81 /* HomePresenter.swift in Sources */,
 				4FBC125421BB6EC700CDFD81 /* Tweat.swift in Sources */,
+				4FBC125D21BB97FF00CDFD81 /* HomeProtocols.swift in Sources */,
 				4FBC124C21BB679A00CDFD81 /* PostNewTweatWireFrame.swift in Sources */,
 				4F918D6621BAD48B008047E2 /* Extensions.swift in Sources */,
 				4F918D4221BAB3BC008047E2 /* HomeViewController.swift in Sources */,

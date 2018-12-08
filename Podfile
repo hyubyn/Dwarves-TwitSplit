@@ -7,7 +7,6 @@ target 'TwitSplit' do
 
   # Pods for TwitSplit
   pod 'Firebase/Core'
-  pod 'Firebase/Core'
   pod 'Firebase/Database'
 
 end

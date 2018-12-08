@@ -12,7 +12,9 @@ class Constants {
     
     static let postNewTweatId = "PostNewTweatViewController"
     
+    static let homeId = "HomeViewController"
+    
     static let databaseKey = "Tweat"
     
-    static let maxCharacterCount = 10
+    static let maxCharacterCount = 20
 }
