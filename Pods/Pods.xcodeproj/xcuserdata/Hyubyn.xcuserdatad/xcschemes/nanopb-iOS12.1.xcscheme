@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5B56E39613CD54F64482DDCD91732150"
-               BuildableName = "Pods_TwitSplit.framework"
-               BlueprintName = "Pods-TwitSplit"
+               BlueprintIdentifier = "FBBB782F7975EAAAA4778534DF7E39D8"
+               BuildableName = "nanopb.framework"
+               BlueprintName = "nanopb-iOS12.1"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5B56E39613CD54F64482DDCD91732150"
-            BuildableName = "Pods_TwitSplit.framework"
-            BlueprintName = "Pods-TwitSplit"
+            BlueprintIdentifier = "FBBB782F7975EAAAA4778534DF7E39D8"
+            BuildableName = "nanopb.framework"
+            BlueprintName = "nanopb-iOS12.1"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

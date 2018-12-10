@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5B56E39613CD54F64482DDCD91732150"
-               BuildableName = "Pods_TwitSplit.framework"
-               BlueprintName = "Pods-TwitSplit"
+               BlueprintIdentifier = "EBF2E25E862EAAB31F03C466C346E488"
+               BuildableName = "GoogleUtilities.framework"
+               BlueprintName = "GoogleUtilities-iOS12.1"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5B56E39613CD54F64482DDCD91732150"
-            BuildableName = "Pods_TwitSplit.framework"
-            BlueprintName = "Pods-TwitSplit"
+            BlueprintIdentifier = "EBF2E25E862EAAB31F03C466C346E488"
+            BuildableName = "GoogleUtilities.framework"
+            BlueprintName = "GoogleUtilities-iOS12.1"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

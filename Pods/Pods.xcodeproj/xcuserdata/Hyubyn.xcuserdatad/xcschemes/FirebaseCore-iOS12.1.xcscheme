@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5B56E39613CD54F64482DDCD91732150"
-               BuildableName = "Pods_TwitSplit.framework"
-               BlueprintName = "Pods-TwitSplit"
+               BlueprintIdentifier = "AF0BB311674650AFF843BFCF2FC9742D"
+               BuildableName = "FirebaseCore.framework"
+               BlueprintName = "FirebaseCore-iOS12.1"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5B56E39613CD54F64482DDCD91732150"
-            BuildableName = "Pods_TwitSplit.framework"
-            BlueprintName = "Pods-TwitSplit"
+            BlueprintIdentifier = "AF0BB311674650AFF843BFCF2FC9742D"
+            BuildableName = "FirebaseCore.framework"
+            BlueprintName = "FirebaseCore-iOS12.1"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
