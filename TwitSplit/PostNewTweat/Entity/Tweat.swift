@@ -11,6 +11,7 @@ import UIKit
 class Tweat: NSObject {
     var id = ""
     var content = [String]()
+    
     init(withContent: [String]) {
         super.init()
         id = Utils.getCurrentTimeStampString()

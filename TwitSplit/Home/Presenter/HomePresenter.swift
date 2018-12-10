@@ -17,7 +17,7 @@ class HomePresenter: HomePresenterProtocol, HomeOutputInteractorProtocol {
     
     func fetchListMessage() {
         guard let interactor = interactor else {
-            fetchListMessageFailed(with: "Interactor is nil")
+            fetchListMessageFailed(with: Constants.interactionNilErrorMessage)
             return
         }
         interactor.fetListMessageFromServer()

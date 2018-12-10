@@ -12,6 +12,5 @@ class HomeWireFrame: HomeWireFrameProtocol {
     func presentPostNewTweatModally(from: UIViewController) {
         PostNewTweatWireFrame.presentPostNewTweatModally(from: from)
     }
-    
 
 }

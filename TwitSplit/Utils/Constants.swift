@@ -16,5 +16,5 @@ class Constants {
     
     static let databaseKey = "Tweat"
     
-    static let maxCharacterCount = 20
+    static let maxCharacterCount = 50
 }

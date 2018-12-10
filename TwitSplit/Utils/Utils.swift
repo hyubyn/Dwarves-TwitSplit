@@ -29,7 +29,7 @@ class Utils: NSObject {
         if content.count <= Constants.maxCharacterCount {
             return (true, [content])
         } else {
-            let total = content.split(separator: " ", maxSplits: Constants.maxCharacterCount, omittingEmptySubsequences: false).count // maximum total substring is array of string after has splitted white space
+            let total = content.split(separator: " ", maxSplits: Constants.maxCharacterCount, omittingEmptySubsequences: false).count // maximum total substring is array of string after has been splitted white space
             var result = [String]()
             var startIndex = 0
             var endIndex = 0
@@ -47,7 +47,7 @@ class Utils: NSObject {
                 if endIndex < content.count {
                     while content[endIndex] != " " {
                         endIndex -= 1
-                        if endIndex < startIndex {
+                        if endIndex < startIndex { // couldn't find the spacing in this range
                             return (false, [])
                         }
                         if content[endIndex] == " " {
@@ -57,7 +57,7 @@ class Utils: NSObject {
                 }
                 let subString = String(content[startIndex..<endIndex])
                 result.append(subString)
-                startIndex = endIndex + 1 // by pass spacing
+                startIndex = endIndex + 1 // by pass spacing index
             }
             for finalIndex in 0 ..< result.count {
                 result[finalIndex] = "\(finalIndex + 1)/\(result.count) \(result[finalIndex])"

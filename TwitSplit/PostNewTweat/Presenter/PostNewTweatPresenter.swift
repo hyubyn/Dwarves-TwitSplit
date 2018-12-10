@@ -18,14 +18,14 @@ class PostNewTweatPresenter: PostNewTweatPresenterProtocol, PostNewTweatOutputIn
     
     func postNewTweat(content: String) {
         guard let interactor = interactor else {
-            self.postNewTweatFailed(with: "Interactor is nil")
+            self.postNewTweatFailed(with: Constants.interactionNilErrorMessage)
             return
         }
         let result = checkContent(content: content)
         if result.0 {
             interactor.sendNewTweatToServer(content: result.1)
         } else {
-            self.postNewTweatFailed(with: "Input is in wrong format")
+            self.postNewTweatFailed(with: Constants.inputInWrongFormatErrorMessage)
         }
         
     }
@@ -35,7 +35,7 @@ class PostNewTweatPresenter: PostNewTweatPresenterProtocol, PostNewTweatOutputIn
     }
     
     func postNewTweatSuccessful() {
-        view?.showPostNewTweatWithResult(isSuccess: true, and: "Congratulations, you new tweat has been posted successfully!")
+        view?.showPostNewTweatWithResult(isSuccess: true, and: Constants.postMessageSuccessMessage)
     }
     
     func checkContent(content: String) -> (Bool, [String]) {
@@ -46,4 +46,10 @@ class PostNewTweatPresenter: PostNewTweatPresenterProtocol, PostNewTweatOutputIn
         return Utils.splitMessage(content: content)
     }
     
+}
+
+extension Constants {
+    static let interactionNilErrorMessage = "Interactor is nil"
+    static let inputInWrongFormatErrorMessage = "Input is in wrong format"
+    static let postMessageSuccessMessage = "Congratulations, you new tweat has been posted successfully!"
 }
