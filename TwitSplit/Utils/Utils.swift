@@ -25,6 +25,48 @@ class Utils: NSObject {
         return strDate
     }
     
+    class func getDifferenceTimeDisplaying(timeStampString: String) -> String {
+        var result = ""
+        let date = Date(timeIntervalSince1970: Double(timeStampString) ?? 0)
+        let currentData = Date()
+        let differenceSecond = currentData.timeIntervalSince(date)
+        switch differenceSecond {
+        case 0..<60:
+            result = "Just now"
+        case 60..<3600:
+            let min = Int((differenceSecond / 60).rounded(.up))
+            if min == 1 {
+                result = "1 minute ago"
+            } else {
+                result = "\(min) minutes ago"
+            }
+        case 3600..<86400:
+            let hour = Int((differenceSecond / 3600).rounded(.up))
+            if hour == 1 {
+                result = "1 hour ago"
+            } else {
+                result = "\(hour) hours ago"
+            }
+        case 86400..<604800:
+            let day = Int((differenceSecond / 86400).rounded(.up))
+            if day == 1 {
+                result = "1 day ago"
+            } else {
+                result = "\(day) days ago"
+            }
+        case 604800..<2592000:
+            let week = Int((differenceSecond / 604800).rounded(.up))
+            if week == 1 {
+                result = "1 week ago"
+            } else {
+                result = "\(week) weeks ago"
+            }
+        default:
+            result = convertFromTimeStampToTimeString(timeStampString: timeStampString)
+        }
+        return result
+    }
+    
     class func splitMessage(content: String) -> (Bool, [String]) {
         if content.count <= Constants.maxCharacterCount {
             return (true, [content])
@@ -48,7 +90,7 @@ class Utils: NSObject {
                     while content[endIndex] != " " {
                         endIndex -= 1
                         if endIndex < startIndex { // couldn't find the spacing in this range
-                            return (false, [])
+                            return (false, result)
                         }
                         if content[endIndex] == " " {
                             break

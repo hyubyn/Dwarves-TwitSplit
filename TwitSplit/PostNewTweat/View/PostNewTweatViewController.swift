@@ -13,8 +13,6 @@ class PostNewTweatViewController: BaseViewController {
     
     @IBOutlet weak var inputTextView: UITextView!
     
-    let placeHolderText = "What's happening?"
-    
     var presenter: PostNewTweatPresenterProtocol?
     
     override func setupView() {
@@ -22,16 +20,16 @@ class PostNewTweatViewController: BaseViewController {
         avatarImageView.layer.cornerRadius = avatarImageView.frame.size.height / 2
         avatarImageView.backgroundColor = .random()
         
-        inputTextView.text = placeHolderText
+        inputTextView.text = Constants.placeHolderText
         inputTextView.textColor = UIColor.lightGray
         inputTextView.becomeFirstResponder()
         inputTextView.selectedTextRange = inputTextView.textRange(from: inputTextView.beginningOfDocument, to: inputTextView.beginningOfDocument)
     }
     
     override func setupNavigationBar() {
-        let leftItemButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelButtonTapped))
+        let leftItemButton = UIBarButtonItem(title: Constants.cancelTitle, style: .plain, target: self, action: #selector(cancelButtonTapped))
         self.navigationItem.leftBarButtonItem = leftItemButton
-        let rightItemButton = UIBarButtonItem(title: "Post", style: .plain, target: self, action: #selector(postButtonTapped))
+        let rightItemButton = UIBarButtonItem(title: Constants.postTitle, style: .plain, target: self, action: #selector(postButtonTapped))
         self.navigationItem.rightBarButtonItem = rightItemButton
     }
     
@@ -41,7 +39,7 @@ class PostNewTweatViewController: BaseViewController {
     
     @objc func postButtonTapped() {
         guard let presenter = presenter else {
-            self.showAlert(title: "Error", message: "Can not perform action now", okAction: nil)
+            self.showAlert(title: Constants.errorTitle, message: Constants.unknowErrorMessage, okAction: nil)
             return
         }
         presenter.postNewTweat(content: inputTextView.text)
@@ -55,7 +53,7 @@ extension PostNewTweatViewController: PostNewTweatViewProtocol {
     }
     
     func showPostNewTweatWithResult(isSuccess: Bool, and message: String) {
-        showAlert(title: isSuccess ? "Post Successful" : "Post Failed", message: message) {
+        showAlert(title: isSuccess ? Constants.postSuccessTitle : Constants.postFailedTitle, message: message) {
             if isSuccess {
                 self.cancelButtonTapped()
             }
@@ -78,7 +76,7 @@ extension PostNewTweatViewController: UITextViewDelegate {
         // and set the cursor to the beginning of the text view
         if updatedText.isEmpty {
             
-            textView.text = placeHolderText
+            textView.text = Constants.placeHolderText
             textView.textColor = UIColor.lightGray
             
             textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
@@ -112,4 +110,14 @@ extension PostNewTweatViewController: UITextViewDelegate {
             }
         }
     }
+}
+
+extension Constants {
+    static let cancelTitle = "Cancel"
+    static let postTitle = "Post"
+    static let errorTitle = "Error"
+    static let postSuccessTitle = "Post Successful"
+    static let postFailedTitle = "Post Failed"
+    static let unknowErrorMessage = "Can not perform action now"
+    static let placeHolderText = "What's happening?"
 }

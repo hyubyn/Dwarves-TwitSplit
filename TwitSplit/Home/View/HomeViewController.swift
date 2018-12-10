@@ -55,6 +55,7 @@ extension HomeViewController: HomeViewProtocol {
     func showListMessage(message: [Tweat]) {
         listMessage = message
         tableView.reloadData()
+        tableView.scrollToRow(at: IndexPath(row: listMessage.count - 1, section: 0), at: .bottom, animated: true)
     }
     
     func showErrorFromGetMessage(error: String) {
@@ -73,7 +74,7 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! HomeTableViewCell
         cell.messageContentLabel.text = listMessage[indexPath.row].localizedString()
-        cell.timeLabel.text = "Posted on \(Utils.convertFromTimeStampToTimeString(timeStampString: listMessage[indexPath.row].id))"
+        cell.timeLabel.text = "Posted \(Utils.getDifferenceTimeDisplaying(timeStampString: listMessage[indexPath.row].id))"
         cell.selectionStyle = .none
         return cell
     }
