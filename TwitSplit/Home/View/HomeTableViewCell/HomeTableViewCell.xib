@@ -23,25 +23,34 @@
                         <rect key="frame" x="10" y="4" width="333" height="114.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kg9-fd-76D">
-                                <rect key="frame" x="8" y="25.5" width="317" height="81"/>
+                                <rect key="frame" x="52" y="25.5" width="273" height="81"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12h30 22-22-2222" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zxp-Wg-a2f">
-                                <rect key="frame" x="8" y="8" width="102" height="13.5"/>
+                                <rect key="frame" x="52" y="8" width="102" height="13.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="mkA-ah-QIf">
+                                <rect key="frame" x="6" y="8" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Cgh-3r-iNT"/>
+                                    <constraint firstAttribute="width" secondItem="mkA-ah-QIf" secondAttribute="height" id="uhR-5y-YK9"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Zxp-Wg-a2f" firstAttribute="top" secondItem="5dr-Zo-k25" secondAttribute="top" constant="8" id="ASX-TG-fp0"/>
                             <constraint firstAttribute="trailing" secondItem="Kg9-fd-76D" secondAttribute="trailing" constant="8" id="ELI-2a-LLB"/>
+                            <constraint firstItem="Kg9-fd-76D" firstAttribute="leading" secondItem="mkA-ah-QIf" secondAttribute="trailing" constant="6" id="PjM-6e-KdV"/>
                             <constraint firstItem="Zxp-Wg-a2f" firstAttribute="leading" secondItem="Kg9-fd-76D" secondAttribute="leading" id="V5w-tB-6Sb"/>
-                            <constraint firstItem="Kg9-fd-76D" firstAttribute="leading" secondItem="5dr-Zo-k25" secondAttribute="leading" constant="8" id="khc-0S-XK4"/>
+                            <constraint firstItem="mkA-ah-QIf" firstAttribute="leading" secondItem="5dr-Zo-k25" secondAttribute="leading" constant="6" id="byM-TD-kk9"/>
                             <constraint firstAttribute="bottom" secondItem="Kg9-fd-76D" secondAttribute="bottom" constant="8" id="r8U-W9-Clz"/>
+                            <constraint firstItem="mkA-ah-QIf" firstAttribute="top" secondItem="Zxp-Wg-a2f" secondAttribute="top" id="uKt-hh-sMk"/>
                             <constraint firstItem="Kg9-fd-76D" firstAttribute="top" secondItem="Zxp-Wg-a2f" secondAttribute="bottom" constant="4" id="wST-xi-jZC"/>
                         </constraints>
                     </view>
@@ -55,6 +64,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="avatarImageView" destination="mkA-ah-QIf" id="ays-aa-bzz"/>
                 <outlet property="cellContainerView" destination="5dr-Zo-k25" id="T9H-hu-ZYn"/>
                 <outlet property="messageContentLabel" destination="Kg9-fd-76D" id="axm-zC-Vz6"/>
                 <outlet property="timeLabel" destination="Zxp-Wg-a2f" id="Ggt-3T-kbe"/>
@@ -62,4 +72,7 @@
             <point key="canvasLocation" x="164" y="166.8665667166417"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="logo" width="100" height="100"/>
+    </resources>
 </document>

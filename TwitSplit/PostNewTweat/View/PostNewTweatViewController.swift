@@ -31,6 +31,8 @@ class PostNewTweatViewController: BaseViewController {
         self.navigationItem.leftBarButtonItem = leftItemButton
         let rightItemButton = UIBarButtonItem(title: Constants.postTitle, style: .plain, target: self, action: #selector(postButtonTapped))
         self.navigationItem.rightBarButtonItem = rightItemButton
+        
+        self.title = "New Tweat"
     }
     
     @objc func cancelButtonTapped() {
